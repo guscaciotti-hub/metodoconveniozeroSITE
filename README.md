@@ -12,7 +12,7 @@ Tudo o que muda fica no bloco `CONFIG`, no topo do `index.html`:
 | `META_PIXEL_ID` | ID do Pixel do Meta. Vazio = o pixel não carrega. |
 | `DEPOIMENTO_VIDEO_URL` | Link *embed* do vídeo (YouTube/Vimeo). Vazio = a seção fica oculta. |
 | `DEPOIMENTO_NOME` | Nome e especialidade de quem dá o depoimento. |
-| `PRECO_FUNDADOR`, `PRECO_CHEIO`, `PRECO_CLUBE` | Valores exibidos na página. |
+| `PRECO_FUNDADOR`, `PRECO_CHEIO`, `PRECO_CLUBE`, `PRECO_CONSULTORIA` | Valores exibidos na página (a consultoria é a âncora de valor em "Coloque na balança"). |
 | `DATA_DECISAO`, `DATA_MODULO_1` | Data limite da turma e liberação do Módulo 1. |
 
 A meta tag de verificação de domínio do Meta entra no `<head>`, onde está o comentário indicando.
