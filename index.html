@@ -40,7 +40,8 @@
 const CONFIG = {
   CHECKOUT_URL: "#oferta",          // link do checkout da Kiwify (ex.: "https://pay.kiwify.com.br/XXXXXXX")
   META_PIXEL_ID: "1442309868054268", // ID do Pixel do Meta (vazio = não carrega)
-  DEPOIMENTO_VIDEO_URL: "",         // link embed do vídeo (YouTube/Vimeo). Vazio = seção oculta
+  DEPOIMENTO_VIDEO_URL: "",         // link embed (YouTube/Vimeo) ou arquivo .mp4 (ex.: "assets/depoimento-eveline.mp4"). Vazio = seção oculta
+  DEPOIMENTO_POSTER: "",            // imagem de capa do vídeo, só para arquivo .mp4 (ex.: "assets/depoimento-eveline.jpg")
   DEPOIMENTO_NOME: "",              // ex.: "Dra. Eveline, ortodontista"
   PRECO_FUNDADOR: "147",
   PRECO_CHEIO: "197",
@@ -236,7 +237,7 @@ a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(
 /* DEPOIMENTO */
 #depoimento{display:none}
 .video{position:relative;padding-top:56.25%;border-radius:20px;overflow:hidden;background:#000;margin-top:28px}
-.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
 
 /* OFERTA */
 .oferta-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:start;margin-top:44px}
@@ -536,7 +537,7 @@ footer a:hover{border-color:#EAF0F0}
   <div class="wrap">
     <p class="sobre-titulo">Quem já trabalha com o método</p>
     <h2 id="dep-nome"></h2>
-    <div class="video"><iframe id="dep-video" title="Depoimento em vídeo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+    <div class="video" id="dep-caixa"></div>
   </div>
 </section>
 
@@ -704,8 +705,19 @@ footer a:hover{border-color:#EAF0F0}
 
   // depoimento opcional
   if (CONFIG.DEPOIMENTO_VIDEO_URL) {
+    var u = CONFIG.DEPOIMENTO_VIDEO_URL, caixa = document.getElementById('dep-caixa'), el;
+    if (/\.(mp4|webm|mov)(\?|$)/i.test(u)) {
+      el = document.createElement('video');
+      el.src = u; el.controls = true; el.playsInline = true; el.preload = 'metadata';
+      if (CONFIG.DEPOIMENTO_POSTER) el.poster = CONFIG.DEPOIMENTO_POSTER;
+      el.setAttribute('aria-label', 'Depoimento em vídeo');
+    } else {
+      el = document.createElement('iframe');
+      el.src = u; el.title = 'Depoimento em vídeo'; el.loading = 'lazy';
+      el.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture'; el.allowFullscreen = true;
+    }
+    caixa.appendChild(el);
     document.getElementById('depoimento').style.display = 'block';
-    document.getElementById('dep-video').src = CONFIG.DEPOIMENTO_VIDEO_URL;
     document.getElementById('dep-nome').textContent = CONFIG.DEPOIMENTO_NOME || '';
   }
 
