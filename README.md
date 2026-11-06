@@ -30,3 +30,7 @@ O script gera os `.webp` com até 1600px de largura. Enquanto as fotos não exis
 ## Domínio próprio
 
 Quando o domínio `conveniozero.com.br` estiver apontado, troque as três URLs absolutas no `<head>` (`canonical`, `og:url` e `og:image`/`twitter:image`) e crie o arquivo `CNAME` na raiz com o conteúdo `conveniozero.com.br`.
+
+## Onde está publicado
+
+Hoje o site está no Netlify, no projeto `conveniozero`: https://conveniozero.netlify.app/ (painel: https://app.netlify.com/projects/conveniozero). Para reenviar depois de uma alteração, use o deploy manual pelo painel (arraste a pasta do projeto) ou conecte o repositório do GitHub ao projeto no Netlify para publicar a cada push.
