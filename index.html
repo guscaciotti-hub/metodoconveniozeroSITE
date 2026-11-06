@@ -39,7 +39,7 @@
    Tudo o que muda fica aqui. Nada mais precisa ser editado. */
 const CONFIG = {
   CHECKOUT_URL: "#oferta",          // link do checkout da Kiwify (ex.: "https://pay.kiwify.com.br/XXXXXXX")
-  META_PIXEL_ID: "",                // ID do Pixel do Meta (vazio = não carrega)
+  META_PIXEL_ID: "1442309868054268", // ID do Pixel do Meta (vazio = não carrega)
   DEPOIMENTO_VIDEO_URL: "",         // link embed do vídeo (YouTube/Vimeo). Vazio = seção oculta
   DEPOIMENTO_NOME: "",              // ex.: "Dra. Eveline, ortodontista"
   PRECO_FUNDADOR: "147",
@@ -318,6 +318,9 @@ footer a:hover{border-color:#EAF0F0}
 </style>
 </head>
 <body>
+
+<!-- Fallback do Pixel para navegadores sem JavaScript (mesmo ID do CONFIG) -->
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1442309868054268&ev=PageView&noscript=1"></noscript>
 
 <div class="faixa">Pré-venda da turma fundadora: valor de lançamento até <span data-cfg="DATA_DECISAO">16/11</span></div>
 
