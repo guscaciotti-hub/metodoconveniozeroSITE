@@ -191,6 +191,14 @@ a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(
 .mod.destaque p{color:rgba(234,240,240,.75)}
 .mod h3{font-size:19px;margin-bottom:4px}
 .mod p{font-size:15.5px;color:var(--tinta-2)}
+.mod.kit{grid-column:1/-1;background:var(--verde-claro);border-color:rgba(22,156,153,.35)}
+.mod.kit .n{background:var(--verde);color:var(--preto);font-size:13px;letter-spacing:.06em}
+.mod.kit p{max-width:72ch}
+.kit-lista{list-style:none;display:grid;grid-template-columns:1fr;gap:8px 24px;margin-top:14px}
+@media(min-width:820px){.kit-lista{grid-template-columns:1fr 1fr}}
+.kit-lista li{position:relative;padding-left:28px;font-size:15.5px;line-height:1.5}
+.kit-lista li::before{content:"✓";position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:6px;background:#fff;color:var(--verde-txt);display:grid;place-items:center;font-size:11px;font-weight:800}
+.conclusao{margin:18px 0 0;padding:18px 22px;border-left:3px solid var(--verde);background:var(--cinza-bg);border-radius:0 14px 14px 0;font-family:var(--titulo);font-weight:500;font-size:18px;line-height:1.5;letter-spacing:-.01em;color:var(--tinta)}
 .etq{display:inline-block;font-family:var(--texto);font-size:12px;font-weight:700;background:var(--verde);color:var(--preto);border-radius:6px;padding:2px 8px;margin-left:6px;vertical-align:middle;letter-spacing:0;line-height:1.5}
 
 /* CALCULADORA */
@@ -343,7 +351,7 @@ footer a:hover{border-color:#EAF0F0}
         <p class="lead">O Método Convênio Zero é o caminho completo, do posicionamento à recepção, para você atrair pacientes particulares com método, sem depender de convênio ou de indicação e sem ferir a autoridade que levou anos para construir.</p>
         <div class="acoes">
           <a class="btn js-checkout" href="#oferta">Quero entrar na turma fundadora <span class="ar" aria-hidden="true">→</span></a>
-          <p class="apoio"><b>R$ <span data-cfg="PRECO_FUNDADOR">147</span></b> no lote fundador, com Aula de Diagnóstico liberada na hora e garantia de 15 dias.</p>
+          <p class="apoio"><b>R$ <span data-cfg="PRECO_FUNDADOR">147</span></b> no lote fundador, com Diagnóstico e Kit Convênio Zero liberados na hora e garantia de 15 dias.</p>
         </div>
         <ul class="selos" aria-label="Para quem é">
           <li><span>Dentistas</span></li><li><span>Médicos</span></li><li><span>Estética</span></li><li><span>Biomédicos</span></li><li><span>Psicólogos</span></li><li><span>Fisioterapeutas</span></li><li><span>Nutricionistas</span></li>
@@ -357,7 +365,7 @@ footer a:hover{border-color:#EAF0F0}
         <div class="cartao-2">Turma fundadora</div>
         <div class="cartao">
           <div class="ic" aria-hidden="true">7</div>
-          <div><b>Diagnóstico + 7 módulos</b><span>1 hora por semana</span></div>
+          <div><b>Diagnóstico, kit e 7 módulos</b><span>1 hora por semana</span></div>
         </div>
       </figure>
     </div>
@@ -433,6 +441,15 @@ footer a:hover{border-color:#EAF0F0}
       <div class="mod rev" style="--d:200ms"><span class="n" aria-hidden="true">05</span><div><h3>A secretária de 2027: a recepção que converte</h3><p>O treinamento para a sua secretária transformar contato em consulta marcada: primeira resposta, como falar de valor, objeções, retorno e confirmação. Feito para ela assistir junto.</p></div></div>
       <div class="mod rev" style="--d:240ms"><span class="n" aria-hidden="true">06</span><div><h3>IA no consultório</h3><p>Inteligência artificial para conteúdo, atendimento e organização, com ética, LGPD e sem perder o seu jeito de falar com o paciente.</p></div></div>
       <div class="mod rev" style="--d:280ms"><span class="n" aria-hidden="true">07</span><div><h3>Caminhos do paciente</h3><p>Três caminhos prontos: tratamento de maior valor, consulta de entrada e reativação de pacientes antigos, com os 4 números para acompanhar.</p></div></div>
+      <div class="mod kit rev" style="--d:320ms"><span class="n" aria-hidden="true">KIT</span><div><h3>Kit Convênio Zero: pronto para usar <span class="etq">na hora</span></h3><p>Para começar ainda nesta semana, sem esperar o primeiro módulo. Tudo adaptável à sua especialidade e às regras do seu conselho, com uma aula curta mostrando como usar cada item. A cada módulo novo, o kit ganha os modelos daquela etapa.</p>
+        <ul class="kit-lista">
+          <li>Mensagens de WhatsApp: primeira resposta, agendamento e confirmação</li>
+          <li>Retorno para quem avaliou e não começou o tratamento</li>
+          <li>Calendário de ações do ano com as datas da saúde</li>
+          <li>Roteiro de divulgação dentro do consultório</li>
+          <li>Modelo de apresentação dos seus tratamentos</li>
+          <li>Mensagens de pós-atendimento e reativação de pacientes</li>
+        </ul></div></div>
     </div>
   </div>
 </section>
@@ -517,6 +534,7 @@ footer a:hover{border-color:#EAF0F0}
       <p class="sobre-titulo">Quem ensina</p>
       <h2 style="margin-bottom:20px">Eu não sou da saúde. Sou da aquisição.</h2>
       <p>Sou Gustavo Scaciotti. Há mais de 10 anos trabalho com tráfego pago e aquisição de clientes, e hoje atendo, pela Evoluze, clínicas e consultórios de odontologia, estética, medicina do sono e biomedicina.</p>
+      <p class="conclusao">Depois de anos cuidando só da aquisição de médicos, dentistas e clínicas, cheguei a uma conclusão: o anúncio quase nunca é o problema. O que falta é posicionamento, uma recepção preparada e uma oferta clara. É isso que todo profissional da saúde precisa aprender.</p>
       <p style="margin-top:14px">Você estudou anos para cuidar do paciente. Meu trabalho é fazer esse paciente chegar até você, e é exatamente isso que eu vou te ensinar, sem tirar você do consultório.</p>
       <div class="numeros">
         <div><b>10+ anos</b><span>em tráfego pago</span></div>
@@ -545,11 +563,11 @@ footer a:hover{border-color:#EAF0F0}
         <h3>Tudo o que você recebe</h3>
         <ul class="inclui">
           <li><span class="ck" aria-hidden="true">✓</span><div><b>Aula de Diagnóstico</b>, liberada na hora<small>Onde sua agenda está vazando e o primeiro ajuste da semana.</small></div></li>
+          <li><span class="ck" aria-hidden="true">✓</span><div><b>Kit Convênio Zero</b>, liberado na hora<small>Mensagens de WhatsApp, calendário de ações, roteiro de divulgação, modelos e prompts prontos.</small></div></li>
           <li><span class="ck" aria-hidden="true">✓</span><div><b>Calculadora Convênio × Particular completa</b><small>Custo por atendimento, margem e quantos particulares você precisa.</small></div></li>
           <li><span class="ck" aria-hidden="true">✓</span><div><b>7 módulos do método</b>, um por semana<small>A partir de <span data-cfg="DATA_MODULO_1">25/11</span>, em aulas curtas.</small></div></li>
           <li><span class="ck" aria-hidden="true">✓</span><div><b>Treinamento da secretária que converte</b><small>Como transformar contato em consulta marcada, para ela assistir junto com você.</small></div></li>
           <li><span class="ck" aria-hidden="true">✓</span><div><b>Encontro ao vivo de boas-vindas</b><small>Com a turma fundadora, para tirar dúvidas e começar certo.</small></div></li>
-          <li><span class="ck" aria-hidden="true">✓</span><div><b>Modelos e prompts prontos</b><small>Campanhas, textos e prompts de IA para adaptar à sua especialidade.</small></div></li>
         </ul>
       </div>
       <div class="preco-col">
@@ -599,7 +617,7 @@ footer a:hover{border-color:#EAF0F0}
     <p class="sobre-titulo">Depois da compra</p>
     <h2>O que acontece quando você entra</h2>
     <div class="passos">
-      <div class="passo rev" style="--d:0ms"><span class="n">Na hora</span><h3>Acesso liberado</h3><p class="muted">Você recebe o acesso por e-mail e já assiste a Aula de Diagnóstico.</p></div>
+      <div class="passo rev" style="--d:0ms"><span class="n">Na hora</span><h3>Acesso liberado</h3><p class="muted">Você recebe o acesso por e-mail, assiste a Aula de Diagnóstico e já pode usar o Kit Convênio Zero.</p></div>
       <div class="passo rev" style="--d:80ms"><span class="n">Nos primeiros dias</span><h3>Faça a sua conta</h3><p class="muted">Use a calculadora completa e descubra o seu primeiro ajuste.</p></div>
       <div class="passo rev" style="--d:160ms"><span class="n">A partir de <span data-cfg="DATA_MODULO_1">25/11</span></span><h3>Um módulo por semana</h3><p class="muted">Um módulo novo toda semana, mais o encontro de boas-vindas ao vivo.</p></div>
     </div>
@@ -615,6 +633,7 @@ footer a:hover{border-color:#EAF0F0}
       <details><summary>Marketing não vai me fazer parecer vendedor?</summary><p>Não, e esse é o centro do método. O paciente particular escolhe quem transmite segurança, não quem grita mais alto. Você vai aprender a comunicar com clareza e técnica, educar antes de oferecer e apresentar valores com transparência. Nada de promoção, dancinha ou pressão.</p></details>
       <details><summary>Meu conselho permite isso?</summary><p>Tudo no método é pensado para respeitar as regras de publicidade dos conselhos (CFM, CFO, CRP, CFBM, COFFITO, CFN, CFFa e outros). Cada conselho tem regras próprias, e você vai saber o que observar em cada etapa. A palavra final é sempre do seu conselho.</p></details>
       <details><summary>Não tenho tempo. Vou conseguir aplicar?</summary><p>O programa foi feito para 1 hora por semana: aulas curtas, modelos prontos e um módulo para a sua secretária assistir. Você não precisa virar profissional de marketing, precisa de um caminho claro.</p></details>
+      <details><summary>É só teoria ou tem coisa pronta para usar?</summary><p>Tem coisa pronta, e ela chega na hora. O Kit Convênio Zero traz mensagens de WhatsApp, retorno para quem não começou o tratamento, calendário de ações do ano, roteiro de divulgação no consultório e modelos para apresentar seus tratamentos. Você adapta à sua especialidade e usa ainda nesta semana. Os módulos explicam o porquê de cada peça, para você não depender de modelo para sempre.</p></details>
       <details><summary>Já paguei agência e não funcionou. Por que agora seria diferente?</summary><p>Porque o problema raramente é o anúncio. Na maioria dos casos falta consideração ou oferta, e aí nenhum anúncio resolve. Aqui você entende o caminho inteiro e passa a saber cobrar resultado de quem trabalha para você.</p></details>
       <details><summary>Não entendo nada de tecnologia nem de anúncio.</summary><p>O programa começa do zero, na linguagem do consultório. Quando entra a parte técnica, é passo a passo, com tela e modelo pronto.</p></details>
       <details><summary>Funciona para a minha especialidade?</summary><p>O caminho de atração, consideração e oferta vale para dentistas, médicos, biomédicos, psicólogos, fisioterapeutas, nutricionistas, fonoaudiólogos e profissionais da estética. O que muda é a prova e a comunicação de cada área, e isso é tratado nas aulas.</p></details>
@@ -624,8 +643,8 @@ footer a:hover{border-color:#EAF0F0}
       <details><summary>Vou precisar investir em anúncios?</summary><p>Não é obrigatório para começar. Você vai saber o que fazer antes do anúncio (perfil, Google, consideração) e, quando decidir anunciar, quanto investir e como não desperdiçar verba.</p></details>
       <details><summary>Minha secretária não vai aplicar nada disso.</summary><p>Por isso existe o módulo "A secretária de 2027: a recepção que converte", feito para ela assistir: primeira resposta, como falar de valor, objeções, retorno e confirmação, com mensagens prontas para adaptar.</p></details>
       <details><summary>Vou ficar sozinho depois de assistir as aulas?</summary><p>A turma fundadora tem um encontro ao vivo de boas-vindas. E quem quiser acompanhamento contínuo pode entrar no Clube Convênio Zero: um encontro ao vivo por mês, análise de casos e comunidade com outros profissionais da saúde, sem fidelidade.</p></details>
-      <details><summary>Por que pré-venda? Quando recebo as aulas?</summary><p>A turma fundadora entra antes, por um valor menor, e ajuda a moldar o programa. A Aula de Diagnóstico é liberada na hora. Os módulos são liberados toda semana a partir de <span data-cfg="DATA_MODULO_1">25/11</span>. Se a turma não for formada até <span data-cfg="DATA_DECISAO">16/11</span>, você recebe 100% de volta automaticamente.</p></details>
-      <details><summary>Você não é da área da saúde. Por que aprender com você?</summary><p>Justamente por isso. Você domina o atendimento; eu domino a aquisição. Há mais de 10 anos trabalho com tráfego pago e atendo clínicas e consultórios de odontologia, estética, medicina do sono e biomedicina. Este programa é a parte que falta na sua formação.</p></details>
+      <details><summary>Por que pré-venda? Quando recebo as aulas?</summary><p>A turma fundadora entra antes, por um valor menor, e ajuda a moldar o programa. A Aula de Diagnóstico e o Kit Convênio Zero são liberados na hora. Os módulos são liberados toda semana a partir de <span data-cfg="DATA_MODULO_1">25/11</span>. Se a turma não for formada até <span data-cfg="DATA_DECISAO">16/11</span>, você recebe 100% de volta automaticamente.</p></details>
+      <details><summary>Você não é da área da saúde. Por que aprender com você?</summary><p>Justamente por isso. Você domina o atendimento; eu domino a aquisição. Há mais de 10 anos trabalho com tráfego pago, e depois de anos cuidando dos anúncios de médicos, dentistas e clínicas, a conclusão foi sempre a mesma: o que falta raramente é anúncio, é método. Eu não ensino nada clínico. Ensino a parte que a faculdade não ensina.</p></details>
       <details><summary>Por que tão barato, se a consultoria custa muito mais?</summary><p>Porque na consultoria eu faço junto com você, toda semana. No Método você recebe o mesmo caminho organizado em aulas e aplica no seu ritmo. Menos acompanhamento individual, mesmo método.</p></details>
       <details><summary>Isso substitui uma agência?</summary><p>Você pode aplicar sozinho ou com a sua equipe. E, se um dia contratar alguém, vai saber exatamente o que pedir e como cobrar resultado.</p></details>
       <details><summary>E se eu não gostar?</summary><p>Depois que o Módulo 1 for liberado, você tem 15 dias. Se achar que não é para você, devolvemos 100% do valor, sem perguntas.</p></details>
@@ -638,7 +657,7 @@ footer a:hover{border-color:#EAF0F0}
   <div class="wrap">
     <h2>Você já sabe cuidar do paciente. Agora aprenda a fazer ele chegar até você.</h2>
     <a class="btn js-checkout" href="#oferta">Quero entrar na turma fundadora <span class="ar" aria-hidden="true">→</span></a>
-    <p class="apoio">Aula de Diagnóstico na hora, garantia de 15 dias e turma garantida ou 100% de volta.</p>
+    <p class="apoio">Diagnóstico e Kit Convênio Zero na hora, garantia de 15 dias e turma garantida ou 100% de volta.</p>
   </div>
 </section>
 
@@ -653,7 +672,7 @@ footer a:hover{border-color:#EAF0F0}
 </footer>
 
 <div class="sticky" id="sticky" aria-hidden="true">
-  <span class="t">Turma fundadora<small>R$ <span data-cfg="PRECO_FUNDADOR">147</span>, Diagnóstico na hora</small></span>
+  <span class="t">Turma fundadora<small>R$ <span data-cfg="PRECO_FUNDADOR">147</span>, Diagnóstico e kit na hora</small></span>
   <a class="btn js-checkout" href="#oferta" tabindex="-1">Quero entrar</a>
 </div>
 
