@@ -1,3 +1,4 @@
 docs-prints/
 _teste_*.html
 .DS_Store
+.netlify/
