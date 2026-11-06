@@ -25,8 +25,8 @@
 <meta name="twitter:description" content="O caminho completo, do posicionamento à recepção, para profissionais da saúde atraírem pacientes particulares com método e sem ferir a autoridade.">
 <meta name="twitter:image" content="https://conveniozero.netlify.app/assets/og-image.png">
 
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/icone-512.png" sizes="512x512" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -102,9 +102,10 @@ a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(
 .hero{padding:26px 0 88px;background:radial-gradient(900px 500px at 85% 20%,rgba(22,156,153,.18),transparent 60%),var(--preto);color:#EAF0F0}
 @media(max-width:640px){.hero{padding-bottom:64px}}
 .topo{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:56px}
-.marca{font-family:var(--titulo);font-weight:600;font-size:19px;letter-spacing:-.02em;color:#fff;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.marca i{width:28px;height:28px;border-radius:8px;background:var(--verde);color:var(--preto);display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:700;flex:0 0 28px}
-.marca small{font-family:var(--texto);font-weight:500;font-size:13px;color:rgba(234,240,240,.6);letter-spacing:0;margin-left:2px}
+.marca{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.marca img{height:44px;width:auto;display:block}
+@media(max-width:480px){.marca img{height:36px}}
+.marca small{font-family:var(--texto);font-weight:500;font-size:13px;color:rgba(234,240,240,.6);letter-spacing:0;padding-bottom:4px;white-space:nowrap}
 .topo a{font-size:14.5px;font-weight:600;text-decoration:none;color:var(--verde-texto);white-space:nowrap;border-bottom:1.5px solid transparent;padding-bottom:2px;transition:border-color .15s}
 .topo a:hover{border-color:currentColor}
 .hero-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
@@ -329,7 +330,7 @@ footer a:hover{border-color:#EAF0F0}
 <header class="hero">
   <div class="wrap">
     <div class="topo">
-      <span class="marca"><i aria-hidden="true">CZ</i>Convênio Zero <small>por Evoluze</small></span>
+      <span class="marca"><img src="assets/logo-convenio-zero.webp" alt="Método Convênio Zero" width="150" height="45" fetchpriority="high"><small>por Evoluze</small></span>
       <a href="#oferta" class="js-checkout">Garantir minha vaga</a>
     </div>
     <div class="hero-grid">
@@ -653,7 +654,7 @@ footer a:hover{border-color:#EAF0F0}
 
 <footer>
   <div class="wrap">
-    <p class="marca"><i aria-hidden="true">CZ</i>Método Convênio Zero</p>
+    <p class="marca"><img src="assets/logo-convenio-zero.webp" alt="Método Convênio Zero" width="150" height="45" loading="lazy"></p>
     <p>Um programa da Evoluze. Gustavo Scaciotti, CNPJ 51.629.310/0001-00, <a href="mailto:guscaciotti@gmail.com">guscaciotti@gmail.com</a></p>
     <p>Este programa ensina método de marketing e comunicação para profissionais da saúde. Os resultados dependem da aplicação e das condições de cada consultório; não há garantia de número de pacientes ou de faturamento. O conteúdo não substitui a orientação do seu conselho profissional.</p>
   </div>
