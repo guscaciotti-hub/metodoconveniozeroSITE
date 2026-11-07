@@ -25,6 +25,7 @@
 <meta name="twitter:description" content="O caminho completo, do posicionamento à recepção, para profissionais da saúde atraírem pacientes particulares com método e sem ferir a autoridade.">
 <meta name="twitter:image" content="https://conveniozero.netlify.app/assets/og-image.png">
 
+<link rel="icon" href="assets/convenio-zero-simbolo.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="assets/icone-512.png" sizes="512x512" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -46,10 +47,11 @@ const CONFIG = {
   DEPOIMENTO_NOME: "Dra. Eveline Leite, ortodontista",
   PRECO_FUNDADOR: "147",
   PRECO_CHEIO: "197",
-  PRECO_CLUBE: "47",
   PRECO_CONSULTORIA: "1.400",       // a partir de quanto custa a consultoria individual (âncora de valor)
   DATA_DECISAO: "16/11",
-  DATA_MODULO_1: "25/11"
+  DATA_LOTE_1: "25/11",
+  DATA_LOTE_2: "09/12",
+  DATA_LOTE_3: "13/01"
 };
 /* ======================================================== */
 document.documentElement.className += ' js';
@@ -135,9 +137,9 @@ main>section:not(.escuro):not(.cinza){background:linear-gradient(180deg,rgba(227
 @media(max-width:640px){.hero{padding-bottom:64px}}
 .topo{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:56px}
 .marca{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap}
-.marca img{height:44px;width:auto;display:block}
-@media(max-width:560px){.marca img{height:36px}.marca small{display:none}}
-.marca small{font-family:var(--texto);font-weight:500;font-size:13px;color:rgba(234,240,240,.6);letter-spacing:0;padding-bottom:4px;white-space:nowrap}
+.marca img{height:30px;width:auto;display:block}
+@media(max-width:560px){.marca img{height:28px}.marca small{display:none}}
+.marca small{font-family:var(--texto);font-weight:500;font-size:13px;color:rgba(234,240,240,.6);letter-spacing:0;padding-bottom:2px;white-space:nowrap}
 .topo a{font-size:14.5px;font-weight:600;text-decoration:none;color:var(--verde-texto);white-space:nowrap;border-bottom:1.5px solid transparent;padding-bottom:2px;transition:border-color .15s}
 .topo a:hover{border-color:currentColor}
 .hero-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
@@ -216,15 +218,63 @@ main>section:not(.escuro):not(.cinza){background:linear-gradient(180deg,rgba(227
 .mod.destaque p{color:rgba(234,240,240,.75)}
 .mod h3{font-size:19px;margin-bottom:4px}
 .mod p{font-size:15.5px;color:var(--tinta-2)}
-.mod.kit{grid-column:1/-1;background:var(--verde-claro);border-color:rgba(22,156,153,.35)}
-.mod.kit .n{background:var(--verde);color:var(--preto);font-size:13px;letter-spacing:.06em}
-.mod.kit p{max-width:72ch}
-.kit-lista{list-style:none;display:grid;grid-template-columns:1fr;gap:8px 24px;margin-top:14px}
-@media(min-width:820px){.kit-lista{grid-template-columns:1fr 1fr}}
-.kit-lista li{position:relative;padding-left:28px;font-size:15.5px;line-height:1.5}
-.kit-lista li::before{content:"✓";position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:6px;background:#fff;color:var(--verde-txt);display:grid;place-items:center;font-size:11px;font-weight:800}
+.mod>div{min-width:0;flex:1}
+.mod.kit{grid-column:1/-1;background:var(--verde-claro);border-color:#CDEAE8}
+.mod.kit .n{background:var(--verde);color:var(--preto);font-size:12.5px;letter-spacing:.02em}
+.mod.kit>div>p{color:var(--tinta)}
+.kit-itens{list-style:none;display:grid;grid-template-columns:minmax(0,1fr);gap:9px 28px;margin:16px 0 0;padding:0}
+@media(min-width:820px){.kit-itens{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.kit-itens li{position:relative;padding-left:22px;font-size:15px;color:var(--tinta)}
+.kit-itens li::before{content:"";position:absolute;left:0;top:.5em;width:10px;height:10px;border-radius:3px;background:var(--verde-esc)}
 .conclusao{margin:18px 0 0;padding:18px 22px;border-left:3px solid var(--verde);background:var(--cinza-bg);border-radius:0 14px 14px 0;font-family:var(--titulo);font-weight:500;font-size:18px;line-height:1.5;letter-spacing:-.01em;color:var(--tinta)}
 .etq{display:inline-block;font-family:var(--texto);font-size:12px;font-weight:700;background:var(--verde);color:var(--preto);border-radius:6px;padding:2px 8px;margin-left:6px;vertical-align:middle;letter-spacing:0;line-height:1.5}
+
+/* GRADE DE AULAS */
+.mods-intro{max-width:760px;margin-top:14px;font-size:17px;color:var(--tinta-2)}
+.modulos{display:grid;gap:14px;margin-top:36px}
+.modulo{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;padding:24px 22px;border:1px solid var(--linha);border-radius:18px;background:#fff}
+@media(min-width:900px){.modulo{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:44px;padding:30px 32px}}
+.mod-cab{display:flex;gap:16px;align-items:flex-start;min-width:0}
+.mod-cab>div{min-width:0}
+.mod-cab .n{flex:0 0 46px;height:46px;border-radius:12px;background:var(--cinza-bg);color:var(--tinta);display:grid;place-items:center;font-family:var(--titulo);font-size:16px;font-weight:600}
+.mod-cab h3{font-size:20px;margin-bottom:6px}
+.mod-cab p{font-size:15.5px;color:var(--tinta-2)}
+.mod-cab .meta{display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:var(--verde-esc);background:var(--verde-claro);border-radius:999px;padding:4px 11px}
+.aulas{list-style:none;margin:0;padding:0;border-top:1px solid var(--linha)}
+.aulas li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:8px;padding:10px 0;border-bottom:1px solid var(--linha);font-size:15px;line-height:1.42;color:var(--tinta)}
+.aulas li span{font-family:var(--titulo);font-weight:600;font-size:13px;color:var(--verde-esc);padding-top:2px}
+.modulo{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.modulo:hover{transform:translateY(-3px);border-color:rgba(22,156,153,.45);box-shadow:0 18px 36px -28px rgba(14,21,22,.35)}
+.modulo.destaque{background:var(--preto);border-color:var(--preto);color:#EAF0F0}
+.modulo.destaque .n{background:var(--verde);color:var(--preto)}
+.modulo.destaque h3{color:#fff}
+.modulo.destaque p{color:rgba(234,240,240,.75)}
+.modulo.destaque .meta{background:rgba(31,181,177,.16);color:var(--verde-texto)}
+.modulo.destaque .aulas,.modulo.destaque .aulas li{border-color:rgba(255,255,255,.14)}
+.modulo.destaque .aulas li{color:#EAF0F0}
+.modulo.destaque .aulas li span{color:var(--verde-texto)}
+.modulos .mod.kit{margin-top:0}
+.bloco-tit{display:flex;align-items:baseline;gap:14px;margin:26px 0 0;padding-bottom:10px;border-bottom:1.5px solid var(--tinta)}
+.bloco-tit:first-child{margin-top:0}
+.modulos .mod.kit{order:0}
+.bloco-tit b{font-family:var(--titulo);font-weight:600;font-size:22px;letter-spacing:-.02em}
+.bloco-tit span{font-size:14.5px;color:var(--tinta-2)}
+@media(max-width:600px){.bloco-tit{flex-direction:column;gap:2px}}
+.modulo.bonus{background:var(--cinza-bg);border-style:dashed}
+.modulo.bonus .n{background:#fff;font-size:12.5px}
+
+/* DEPOIS DA COMPRA */
+.jornada{margin-top:36px;border-top:1px solid var(--linha)}
+.jor{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0;border-bottom:1px solid var(--linha)}
+@media(min-width:900px){.jor{grid-template-columns:200px minmax(0,1fr) minmax(0,1.2fr);gap:36px;align-items:start}}
+.jor .quando{font-family:var(--titulo);font-weight:600;font-size:15px;color:var(--verde-esc)}
+.jor h3{font-size:21px;margin-bottom:6px}
+.jor p{font-size:15.5px;color:var(--tinta-2)}
+.jor ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.jor li{position:relative;padding-left:20px;font-size:15px;line-height:1.45}
+.jor li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:2px;background:var(--verde)}
+.jor.agora{background:var(--verde-claro);border-radius:16px;padding:24px 22px;border-bottom:0;margin-bottom:1px}
+@media(min-width:900px){.jor.agora{padding:28px 28px;margin:0 -28px 1px}}
 
 /* CALCULADORA */
 .calc-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;margin-top:40px}
@@ -244,7 +294,7 @@ main>section:not(.escuro):not(.cinza){background:linear-gradient(180deg,rgba(227
 .res .grande{font-family:var(--titulo);font-weight:600;letter-spacing:-.04em;font-size:clamp(46px,6vw,64px);color:var(--verde-texto);line-height:1;margin:8px 0 6px;font-variant-numeric:tabular-nums}
 .res .grande.pulsa{animation:pulsa .5s ease}
 @keyframes pulsa{0%{transform:scale(1)}40%{transform:scale(1.04)}100%{transform:scale(1)}}
-.res .grande small{font-family:var(--texto);font-weight:600;font-size:17px;letter-spacing:0;color:#EAF0F0;margin-left:8px}
+.res .grande small{font-family:var(--texto);font-weight:600;font-size:17px;letter-spacing:0;color:#EAF0F0;margin-left:2px}
 .res .nota{font-size:14.5px;margin-top:14px}
 
 /* ÉTICA + PARA QUEM */
@@ -314,20 +364,6 @@ main>section:not(.escuro):not(.cinza){background:linear-gradient(180deg,rgba(227
 .garantias div{background:var(--cinza-bg);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--tinta-2)}
 .garantias b{display:block;color:var(--tinta);font-size:15px;margin-bottom:2px}
 
-/* CLUBE */
-.clube{background:var(--verde-claro);border-radius:24px;padding:30px 22px;display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
-@media(min-width:860px){.clube{grid-template-columns:1.3fr .7fr;padding:40px}}
-.clube .preco-clube{font-family:var(--titulo);font-weight:600;letter-spacing:-.03em;font-size:40px;color:var(--tinta);line-height:1}
-.clube .preco-clube small{font-family:var(--texto);font-size:15px;color:var(--tinta-2);letter-spacing:0;font-weight:500}
-
-/* PASSOS */
-.passos{display:grid;grid-template-columns:1fr;gap:12px;margin-top:32px}
-@media(min-width:820px){.passos{grid-template-columns:repeat(3,1fr)}}
-.passo{border:1px solid var(--linha);border-radius:16px;padding:22px;background:#fff;transition:transform .25s ease,border-color .25s ease}
-.passo:hover{transform:translateY(-3px);border-color:rgba(22,156,153,.45)}
-.passo .n{font-family:var(--titulo);font-weight:600;font-size:15px;color:var(--verde-txt)}
-.passo h3{margin:8px 0 6px}
-
 /* FAQ */
 .faq{margin-top:36px;max-width:860px;border-top:1px solid var(--linha)}
 .faq details{border-bottom:1px solid var(--linha)}
@@ -372,7 +408,7 @@ footer a:hover{border-color:#EAF0F0}
   <div class="hero-fundo" aria-hidden="true"><img src="assets/fundo-hero.webp" alt="" width="1600" height="900" decoding="async" fetchpriority="low" class="js-fundo"></div>
   <div class="wrap">
     <div class="topo">
-      <span class="marca"><img src="assets/logo-convenio-zero.webp" alt="Método Convênio Zero" width="150" height="45" fetchpriority="high"><small>por Evoluze</small></span>
+      <span class="marca"><img src="assets/convenio-zero-logo-horizontal-escuro.svg" alt="Método Convênio Zero" width="151" height="30" fetchpriority="high"><small>por Evoluze</small></span>
       <a href="#oferta" class="js-checkout">Garantir minha vaga</a>
     </div>
     <div class="hero-grid">
@@ -395,8 +431,8 @@ footer a:hover{border-color:#EAF0F0}
         </div>
         <div class="cartao-2">Turma fundadora</div>
         <div class="cartao">
-          <div class="ic" aria-hidden="true">7</div>
-          <div><b>Diagnóstico, kit e 7 módulos</b><span>1 hora por semana</span></div>
+          <div class="ic" aria-hidden="true">12</div>
+          <div><b>Diagnóstico, kit e 12 módulos</b><span>53 aulas curtas, gravadas</span></div>
         </div>
       </figure>
     </div>
@@ -462,19 +498,16 @@ footer a:hover{border-color:#EAF0F0}
 <!-- MÓDULOS -->
 <section>
   <div class="wrap">
-    <p class="sobre-titulo">O que você vai aprender</p>
-    <h2>Uma hora por semana, um módulo por vez.</h2>
-    <div class="mods">
-      <div class="mod destaque rev"><span class="n" aria-hidden="true">00</span><div><h3>Diagnóstico <span class="etq">na hora</span></h3><p>Onde sua agenda está vazando: a conta entre convênio e particular, e o primeiro ajuste para fazer ainda nesta semana.</p></div></div>
-      <div class="mod rev"><span class="n" aria-hidden="true">01</span><div><h3>Posicionamento que preserva autoridade</h3><p>Ser lembrado como referência na sua área sem dancinha, sem exposição desnecessária e sem promessa que seu conselho não permite.</p></div></div>
-      <div class="mod rev"><span class="n" aria-hidden="true">02</span><div><h3>Atração</h3><p>Google, Instagram e anúncios: onde investir primeiro, quanto investir e como parar de gastar verba com quem nunca vai marcar.</p></div></div>
-      <div class="mod rev"><span class="n" aria-hidden="true">03</span><div><h3>Consideração</h3><p>O que o paciente procura antes de escolher você: perfil, site, avaliações, conteúdo e a prova certa para cada especialidade.</p></div></div>
-      <div class="mod rev"><span class="n" aria-hidden="true">04</span><div><h3>Oferta</h3><p>Como apresentar consulta, tratamento e valores com clareza e ética, e por que "quanto custa?" não é o fim da conversa.</p></div></div>
-      <div class="mod rev"><span class="n" aria-hidden="true">05</span><div><h3>A secretária de 2027: a recepção que converte</h3><p>O treinamento para a sua secretária transformar contato em consulta marcada: primeira resposta, como falar de valor, objeções, retorno e confirmação. Feito para ela assistir junto.</p></div></div>
-      <div class="mod rev"><span class="n" aria-hidden="true">06</span><div><h3>IA no consultório</h3><p>Inteligência artificial para conteúdo, atendimento e organização, com ética, LGPD e sem perder o seu jeito de falar com o paciente.</p></div></div>
-      <div class="mod rev"><span class="n" aria-hidden="true">07</span><div><h3>Caminhos do paciente</h3><p>Três caminhos prontos: tratamento de maior valor, consulta de entrada e reativação de pacientes antigos, com os 4 números para acompanhar.</p></div></div>
+    <p class="sobre-titulo">O que você vai aprender, aula por aula</p>
+    <h2>12 módulos, 53 aulas curtas. Marketing e vendas para o consultório inteiro.</h2>
+    <p class="mods-intro">Do posicionamento ao atendimento, passando por Google, IA, site, criativos e anúncios. Tudo gravado, para assistir no seu ritmo. O Diagnóstico e o Kit chegam na hora; os módulos são liberados em três lotes: <span data-cfg="DATA_LOTE_1">25/11</span>, <span data-cfg="DATA_LOTE_2">09/12</span> e <span data-cfg="DATA_LOTE_3">13/01</span>.</p>
+    <div class="modulos">
+      <div class="modulo destaque rev">
+        <div class="mod-cab"><span class="n" aria-hidden="true">00</span><div><h3>Diagnóstico <span class="etq">na hora</span></h3><p>Onde a sua agenda está vazando hoje, e o primeiro ajuste para fazer ainda nesta semana.</p><span class="meta">3 aulas + calculadora · na hora</span></div></div>
+        <ol class="aulas"><li><span>0.1</span>Onde a sua agenda vaza: atração, consideração ou oferta</li><li><span>0.2</span>A conta convênio × particular com os seus números</li><li><span>0.3</span>O seu primeiro ajuste: o que fazer ainda nesta semana</li></ol>
+      </div>
       <div class="mod kit rev"><span class="n" aria-hidden="true">KIT</span><div><h3>Kit Convênio Zero: pronto para usar <span class="etq">na hora</span></h3><p>Para começar ainda nesta semana, sem esperar o primeiro módulo. Tudo adaptável à sua especialidade e às regras do seu conselho, com uma aula curta mostrando como usar cada item. A cada módulo novo, o kit ganha os modelos daquela etapa.</p>
-        <ul class="kit-lista">
+        <ul class="kit-itens">
           <li>Mensagens de WhatsApp: primeira resposta, agendamento e confirmação</li>
           <li>Retorno para quem avaliou e não começou o tratamento</li>
           <li>Calendário de ações do ano com as datas da saúde</li>
@@ -482,6 +515,62 @@ footer a:hover{border-color:#EAF0F0}
           <li>Modelo de apresentação dos seus tratamentos</li>
           <li>Mensagens de pós-atendimento e reativação de pacientes</li>
         </ul></div></div>
+      <div class="bloco-tit"><b>Base</b><span>Antes de atrair qualquer paciente</span></div>
+      <div class="modulo rev">
+        <div class="mod-cab"><span class="n" aria-hidden="true">01</span><div><h3>Posicionamento</h3><p>Ser lembrado como referência na sua área sem dancinha, sem exposição e sem baratear o seu trabalho.</p><span class="meta">4 aulas · liberado em <span data-cfg="DATA_LOTE_1">25/11</span></span></div></div>
+        <ol class="aulas"><li><span>1.1</span>Por que o paciente particular não escolhe pelo preço</li><li><span>1.2</span>O seu paciente ideal: quem é, o que valoriza e onde está</li><li><span>1.3</span>O seu diferencial em uma frase, sem jargão técnico</li><li><span>1.4</span>Marca pessoal ou marca da clínica: autoridade sem exposição</li></ol>
+      </div>
+      <div class="modulo rev">
+        <div class="mod-cab"><span class="n" aria-hidden="true">02</span><div><h3>Conselho: o que pode e o que não pode</h3><p>As regras de publicidade da saúde traduzidas para o dia a dia, para você comunicar sem medo.</p><span class="meta">4 aulas · liberado em <span data-cfg="DATA_LOTE_1">25/11</span></span></div></div>
+        <ol class="aulas"><li><span>2.1</span>O que as regras dos conselhos têm em comum</li><li><span>2.2</span>Antes e depois, depoimentos e avaliações: onde está o limite</li><li><span>2.3</span>Preço, promoção e sorteio: o que pode aparecer e onde</li><li><span>2.4</span>Checklist antes de publicar qualquer coisa: CFO, CFM, CRP e outros</li></ol>
+      </div>
+      <div class="modulo rev">
+        <div class="mod-cab"><span class="n" aria-hidden="true">03</span><div><h3>Preço e saída do convênio</h3><p>Quanto cobrar no particular e como depender menos do convênio sem perder caixa.</p><span class="meta">4 aulas · liberado em <span data-cfg="DATA_LOTE_1">25/11</span></span></div></div>
+        <ol class="aulas"><li><span>3.1</span>A conta real do convênio: quanto cada atendimento te paga de verdade</li><li><span>3.2</span>Quanto cobrar no particular: valor, margem e posicionamento</li><li><span>3.3</span>Plano de transição: abrir horários particulares sem perder caixa</li><li><span>3.4</span>Como comunicar a mudança para os pacientes atuais</li></ol>
+      </div>
+      <div class="bloco-tit"><b>Atração e consideração</b><span>Ser encontrado e ser escolhido</span></div>
+      <div class="modulo rev">
+        <div class="mod-cab"><span class="n" aria-hidden="true">04</span><div><h3>Google e IAs: ser encontrado e recomendado</h3><p>Aparecer quando o paciente procura no Google, e quando ele pergunta para uma inteligência artificial.</p><span class="meta">4 aulas · liberado em <span data-cfg="DATA_LOTE_1">25/11</span></span></div></div>
+        <ol class="aulas"><li><span>4.1</span>Google Meu Negócio do zero: categorias, serviços e área de atendimento</li><li><span>4.2</span>Avaliações e reputação: como pedir, responder e lidar com crítica</li><li><span>4.3</span>Como o ChatGPT e a IA do Google escolhem quem recomendar</li><li><span>4.4</span>O que fazer para ser citado quando o paciente pergunta à IA</li></ol>
+      </div>
+      <div class="modulo rev">
+        <div class="mod-cab"><span class="n" aria-hidden="true">05</span><div><h3>Sites em 2027</h3><p>A página que responde as dúvidas do paciente e transforma visita em contato.</p><span class="meta">4 aulas · liberado em <span data-cfg="DATA_LOTE_2">09/12</span></span></div></div>
+        <ol class="aulas"><li><span>5.1</span>Site, página ou só WhatsApp: o que você precisa de verdade</li><li><span>5.2</span>A estrutura de uma página que transforma visita em contato</li><li><span>5.3</span>Montar a sua página com IA, sem depender de programador</li><li><span>5.4</span>Agendamento online, WhatsApp ou formulário: qual usar</li></ol>
+      </div>
+      <div class="modulo rev">
+        <div class="mod-cab"><span class="n" aria-hidden="true">06</span><div><h3>Criativos em 2027</h3><p>O que vai no anúncio e no conteúdo: gancho, roteiro e vídeo feito com o celular e com IA.</p><span class="meta">4 aulas · liberado em <span data-cfg="DATA_LOTE_2">09/12</span></span></div></div>
+        <ol class="aulas"><li><span>6.1</span>O que faz alguém parar de rolar o feed: gancho e primeiros segundos</li><li><span>6.2</span>Roteiros de vídeo para a sua especialidade: educar sem prometer</li><li><span>6.3</span>Gravar com o celular: luz, som e enquadramento simples</li><li><span>6.4</span>IA para roteiros, legendas, imagens e edição</li></ol>
+      </div>
+      <div class="modulo rev">
+        <div class="mod-cab"><span class="n" aria-hidden="true">07</span><div><h3>Anúncios em 2027</h3><p>Google Ads e Meta Ads, só o que realmente importa: onde investir, quanto e como não desperdiçar.</p><span class="meta">5 aulas · liberado em <span data-cfg="DATA_LOTE_2">09/12</span></span></div></div>
+        <ol class="aulas"><li><span>7.1</span>Google Ads básico: como o paciente pesquisa e quais termos importam</li><li><span>7.2</span>A sua primeira campanha no Google: região, horários e verba mínima</li><li><span>7.3</span>Meta Ads, o que realmente importa: público, criativo e orçamento</li><li><span>7.4</span>Quanto investir e por onde começar com pouca verba</li><li><span>7.5</span>Os erros que mais desperdiçam verba, e como cortar cada um</li></ol>
+      </div>
+      <div class="bloco-tit"><b>Oferta</b><span>Transformar contato em paciente</span></div>
+      <div class="modulo destaque rev">
+        <div class="mod-cab"><span class="n" aria-hidden="true">08</span><div><h3>Atendimento em 2027: transforme quem atende em vendedor</h3><p>Para a secretária, a recepcionista ou você mesmo, se atende sozinho. Quem atende ganha acesso próprio ao curso.</p><span class="meta">7 aulas · liberado em <span data-cfg="DATA_LOTE_2">09/12</span></span></div></div>
+        <ol class="aulas"><li><span>8.1</span>De agendador a vendedor: o novo papel de quem atende</li><li><span>8.2</span>A primeira resposta: tempo, tom e o que perguntar</li><li><span>8.3</span>"Quanto custa?": como responder sem perder o paciente</li><li><span>8.4</span>As objeções mais comuns e como conduzir cada uma</li><li><span>8.5</span>Scripts de WhatsApp e de ligação prontos para adaptar</li><li><span>8.6</span>Follow-up, confirmação e lembretes para evitar faltas</li><li><span>8.7</span>Respostas com IA, metas de atendimento e um CRM simples para nenhum contato se perder</li></ol>
+      </div>
+      <div class="modulo rev">
+        <div class="mod-cab"><span class="n" aria-hidden="true">09</span><div><h3>Processos de vendas: da consulta ao tratamento fechado</h3><p>A sua parte: conduzir a consulta e apresentar o tratamento com clareza e ética.</p><span class="meta">4 aulas · liberado em <span data-cfg="DATA_LOTE_3">13/01</span></span></div></div>
+        <ol class="aulas"><li><span>9.1</span>A consulta de avaliação como momento de decisão</li><li><span>9.2</span>Como montar e apresentar um plano de tratamento</li><li><span>9.3</span>Falar de valor, pagamento e parcelamento sem constranger</li><li><span>9.4</span>"Vou pensar": o que fazer depois da consulta</li></ol>
+      </div>
+      <div class="modulo rev">
+        <div class="mod-cab"><span class="n" aria-hidden="true">10</span><div><h3>A base que você já tem</h3><p>O marketing mais barato do consultório: quem já é ou já foi seu paciente.</p><span class="meta">4 aulas · liberado em <span data-cfg="DATA_LOTE_3">13/01</span></span></div></div>
+        <ol class="aulas"><li><span>10.1</span>Retorno e manutenção: o paciente que volta com hora marcada</li><li><span>10.2</span>Reativação de pacientes antigos, com mensagens prontas</li><li><span>10.3</span>Indicação dentro das regras do conselho</li><li><span>10.4</span>Os detalhes da experiência que fazem o paciente voltar e falar de você</li></ol>
+      </div>
+      <div class="bloco-tit"><b>Sistema</b><span>Tudo funcionando sem depender de sorte</span></div>
+      <div class="modulo rev">
+        <div class="mod-cab"><span class="n" aria-hidden="true">11</span><div><h3>Funis e processos de marketing</h3><p>O mapa do caminho do paciente e a rotina que faz ele funcionar toda semana.</p><span class="meta">4 aulas · liberado em <span data-cfg="DATA_LOTE_3">13/01</span></span></div></div>
+        <ol class="aulas"><li><span>11.1</span>O funil do consultório: do primeiro contato ao paciente que volta</li><li><span>11.2</span>A rotina de marketing da semana: o que fazer, quem faz e quando</li><li><span>11.3</span>Os números que importam: custo por paciente, agendamento, comparecimento e fechamento</li><li><span>11.4</span>Um painel simples para acompanhar tudo em 15 minutos por semana</li></ol>
+      </div>
+      <div class="modulo rev">
+        <div class="mod-cab"><span class="n" aria-hidden="true">12</span><div><h3>Estratégias de marketing e vendas</h3><p>Estratégias prontas, que eu já apliquei em clínicas e consultórios atendidos pela Evoluze.</p><span class="meta">5 aulas · liberado em <span data-cfg="DATA_LOTE_3">13/01</span></span></div></div>
+        <ol class="aulas"><li><span>12.1</span>Como escolher a sua estratégia: verba, cidade e especialidade</li><li><span>12.2</span>Tratamento de maior valor</li><li><span>12.3</span>Consulta de entrada</li><li><span>12.4</span>Parcerias locais e datas da saúde</li><li><span>12.5</span>Bastidores: como essas estratégias foram aplicadas em clínicas atendidas pela Evoluze</li></ol>
+      </div>
+      <div class="modulo bonus rev">
+        <div class="mod-cab"><span class="n" aria-hidden="true">Bônus</span><div><h3>Como contratar e cobrar agência ou freelancer</h3><p>Para nunca mais pagar por marketing sem saber o que está recebendo.</p><span class="meta">3 aulas · liberado em <span data-cfg="DATA_LOTE_3">13/01</span></span></div></div>
+        <ol class="aulas"><li><span>B.1</span>Agência, freelancer ou equipe própria: o que faz sentido para você</li><li><span>B.2</span>O que pedir numa proposta e os sinais de alerta</li><li><span>B.3</span>Como acompanhar e cobrar resultado todo mês</li></ol>
+      </div>
     </div>
   </div>
 </section>
@@ -500,7 +589,7 @@ footer a:hover{border-color:#EAF0F0}
       </div>
       <div class="painel res rev" style="--d:80ms" aria-live="polite">
         <div class="linha"><span>Receita do convênio no mês</span><span class="v" id="r-receita">R$ 9.600</span></div>
-        <div style="padding-top:12px"><span class="muted" style="font-size:15px">Particulares para chegar ao mesmo valor</span><div class="grande"><span id="r-part">28</span><small id="r-part-u">pacientes</small></div></div>
+        <div style="padding-top:12px"><span class="muted" style="font-size:15px">Particulares para chegar ao mesmo valor</span><div class="grande"><span id="r-part">28</span> <small id="r-part-u">pacientes</small></div></div>
         <div class="linha" style="border-top:1px solid var(--linha-esc);border-bottom:0"><span>Horários que sobram na agenda</span><span class="v" id="r-livres">92 horários</span></div>
         <p class="nota muted">Na Aula de Diagnóstico você vai além desta conta: custo por atendimento, margem e o primeiro ajuste para trocar convênio por particular no seu ritmo.</p>
       </div>
@@ -565,9 +654,9 @@ footer a:hover{border-color:#EAF0F0}
     <div>
       <p class="sobre-titulo">Quem ensina</p>
       <h2 style="margin-bottom:20px">Eu não sou da saúde. Sou da aquisição.</h2>
-      <p>Sou Gustavo Scaciotti. Há mais de 10 anos trabalho com tráfego pago e aquisição de clientes, e hoje atendo, pela Evoluze, clínicas e consultórios de odontologia, estética, medicina do sono e biomedicina.</p>
+      <p>Sou Gustavo Scaciotti. Há mais de 10 anos trabalho com tráfego pago e aquisição de clientes, e hoje cuido, pela Evoluze, dos anúncios de clínicas e consultórios de odontologia, medicina, estética e biomedicina.</p>
       <p class="conclusao rev">Depois de anos cuidando só da aquisição de médicos, dentistas e clínicas, cheguei a uma conclusão: o anúncio quase nunca é o problema. O que falta é posicionamento, uma recepção preparada e uma oferta clara. É isso que todo profissional da saúde precisa aprender.</p>
-      <p style="margin-top:14px">Você estudou anos para cuidar do paciente. Meu trabalho é fazer esse paciente chegar até você, e é exatamente isso que eu vou te ensinar, sem tirar você do consultório.</p>
+      <p style="margin-top:18px">Você estudou anos para cuidar do paciente. Meu trabalho é fazer esse paciente chegar até você, e é exatamente isso que eu vou te ensinar, sem tirar você do consultório.</p>
       <div class="numeros">
         <div><b>10+ anos</b><span>em tráfego pago</span></div>
         <div><b>R$ 3 mi+</b><span>em anúncios gerenciados</span></div>
@@ -598,9 +687,10 @@ footer a:hover{border-color:#EAF0F0}
           <li><span class="ck" aria-hidden="true">✓</span><div><b>Aula de Diagnóstico</b>, liberada na hora<small>Onde sua agenda está vazando e o primeiro ajuste da semana.</small></div></li>
           <li><span class="ck" aria-hidden="true">✓</span><div><b>Kit Convênio Zero</b>, liberado na hora<small>Mensagens de WhatsApp, calendário de ações, roteiro de divulgação, modelos e prompts prontos.</small></div></li>
           <li><span class="ck" aria-hidden="true">✓</span><div><b>Calculadora Convênio × Particular completa</b><small>Custo por atendimento, margem e quantos particulares você precisa.</small></div></li>
-          <li><span class="ck" aria-hidden="true">✓</span><div><b>7 módulos do método</b>, um por semana<small>A partir de <span data-cfg="DATA_MODULO_1">25/11</span>, em aulas curtas.</small></div></li>
-          <li><span class="ck" aria-hidden="true">✓</span><div><b>Treinamento da secretária que converte</b><small>Como transformar contato em consulta marcada, para ela assistir junto com você.</small></div></li>
-          <li><span class="ck" aria-hidden="true">✓</span><div><b>Encontro ao vivo de boas-vindas</b><small>Com a turma fundadora, para tirar dúvidas e começar certo.</small></div></li>
+          <li><span class="ck" aria-hidden="true">✓</span><div><b>12 módulos, 53 aulas curtas gravadas</b><small>Posicionamento, conselho, preço, Google e IAs, site, criativos, anúncios, atendimento, vendas e mais. Em três lotes: <span data-cfg="DATA_LOTE_1">25/11</span>, <span data-cfg="DATA_LOTE_2">09/12</span> e <span data-cfg="DATA_LOTE_3">13/01</span>.</small></div></li>
+          <li><span class="ck" aria-hidden="true">✓</span><div><b>Acesso próprio para quem atende</b><small>A sua secretária, recepcionista ou assistente ganha login próprio para fazer o módulo "Atendimento em 2027".</small></div></li>
+          <li><span class="ck" aria-hidden="true">✓</span><div><b>Bônus: como contratar e cobrar agência ou freelancer</b><small>O que pedir, os sinais de alerta e como acompanhar resultado.</small></div></li>
+          <li><span class="ck" aria-hidden="true">✓</span><div><b>Comunidade Convênio Zero</b><small>Profissionais da saúde com o mesmo desafio, e dúvidas respondidas por mim toda semana.</small></div></li>
         </ul>
       </div>
       <div class="preco-col">
@@ -618,27 +708,10 @@ footer a:hover{border-color:#EAF0F0}
           <p class="parc">no lote fundador, ou parcelado em até 12x no cartão</p>
           <a class="btn js-checkout" href="#oferta">Quero entrar na turma fundadora</a>
           <div class="garantias">
-            <div><b>Garantia de 15 dias</b>Conta a partir da liberação do Módulo 1. Se não for para você, devolvemos 100%.</div>
+            <div><b>Garantia de 15 dias</b>Conta a partir da liberação dos primeiros módulos, em <span data-cfg="DATA_LOTE_1">25/11</span>. Se não for para você, devolvemos 100%.</div>
             <div><b>Turma garantida</b>Se a turma não for formada até <span data-cfg="DATA_DECISAO">16/11</span>, você recebe 100% de volta.</div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CLUBE -->
-<section style="padding-bottom:0">
-  <div class="wrap">
-    <div class="clube rev">
-      <div>
-        <p class="sobre-titulo">Opcional, depois da compra</p>
-        <h2 style="margin-bottom:12px;font-size:clamp(26px,3.4vw,36px)">Clube Convênio Zero</h2>
-        <p class="muted">Para quem quer acompanhamento contínuo: um encontro ao vivo por mês comigo, análise de casos da turma e uma comunidade de profissionais da saúde com o mesmo desafio. O convite chega logo depois da compra do curso, e você decide se entra.</p>
-      </div>
-      <div>
-        <div class="preco-clube">R$ <span data-cfg="PRECO_CLUBE">47</span><small> por mês</small></div>
-        <p class="muted" style="font-size:14.5px;margin-top:8px">Sem fidelidade. Cancela quando quiser.</p>
       </div>
     </div>
   </div>
@@ -649,10 +722,63 @@ footer a:hover{border-color:#EAF0F0}
   <div class="wrap">
     <p class="sobre-titulo">Depois da compra</p>
     <h2>O que acontece quando você entra</h2>
-    <div class="passos">
-      <div class="passo rev"><span class="n">Na hora</span><h3>Acesso liberado</h3><p class="muted">Você recebe o acesso por e-mail, assiste a Aula de Diagnóstico e já pode usar o Kit Convênio Zero.</p></div>
-      <div class="passo rev"><span class="n">Nos primeiros dias</span><h3>Faça a sua conta</h3><p class="muted">Use a calculadora completa e descubra o seu primeiro ajuste.</p></div>
-      <div class="passo rev"><span class="n">A partir de <span data-cfg="DATA_MODULO_1">25/11</span></span><h3>Um módulo por semana</h3><p class="muted">Um módulo novo toda semana, mais o encontro de boas-vindas ao vivo.</p></div>
+    <div class="jornada">
+      <div class="jor agora rev">
+        <span class="quando">Na hora da compra</span>
+        <div><h3>Acesso liberado</h3><p>O login da área de membros chega no seu e-mail e você já começa.</p></div>
+        <ul>
+          <li>Aula de Diagnóstico: em qual etapa a sua agenda vaza</li>
+          <li>Calculadora Convênio × Particular com os seus números</li>
+          <li>Kit Convênio Zero: mensagens, calendário de ações e modelos prontos</li>
+          <li>Convite para a comunidade Convênio Zero</li>
+        </ul>
+      </div>
+      <div class="jor rev">
+        <span class="quando">Na primeira semana</span>
+        <div><h3>Os primeiros ajustes</h3><p>Antes mesmo dos módulos, você já tem o que fazer.</p></div>
+        <ul>
+          <li>Você sabe onde está perdendo paciente e o que mexer primeiro</li>
+          <li>Quem atende recebe o login próprio e começa a usar as mensagens do kit</li>
+          <li>Você se apresenta na comunidade e tira as primeiras dúvidas</li>
+        </ul>
+      </div>
+      <div class="jor rev">
+        <span class="quando"><span data-cfg="DATA_LOTE_1">25/11</span></span>
+        <div><h3>Lote 1: módulos 1 a 4</h3><p>16 aulas curtas sobre a base e sobre ser encontrado.</p></div>
+        <ul>
+          <li>Posicionamento</li>
+          <li>Conselho: o que pode e o que não pode</li>
+          <li>Preço e saída do convênio</li>
+          <li>Google e IAs: ser encontrado e recomendado</li>
+        </ul>
+      </div>
+      <div class="jor rev">
+        <span class="quando"><span data-cfg="DATA_LOTE_2">09/12</span></span>
+        <div><h3>Lote 2: módulos 5 a 8</h3><p>20 aulas curtas sobre atrair e atender.</p></div>
+        <ul>
+          <li>Sites, criativos e anúncios em 2027</li>
+          <li>Atendimento em 2027: transforme quem atende em vendedor</li>
+          <li>O kit ganha os modelos de cada módulo</li>
+        </ul>
+      </div>
+      <div class="jor rev">
+        <span class="quando"><span data-cfg="DATA_LOTE_3">13/01</span></span>
+        <div><h3>Lote 3: módulos 9 a 12 e bônus</h3><p>20 aulas curtas sobre vender, reter e organizar tudo.</p></div>
+        <ul>
+          <li>Processos de vendas e a base que você já tem</li>
+          <li>Funis, processos e estratégias de marketing e vendas</li>
+          <li>Bônus: como contratar e cobrar agência ou freelancer</li>
+        </ul>
+      </div>
+      <div class="jor rev">
+        <span class="quando">Daí em diante</span>
+        <div><h3>No seu ritmo, com a comunidade</h3><p>As aulas ficam gravadas e você volta a elas quando precisar.</p></div>
+        <ul>
+          <li>Comunidade com profissionais da saúde que têm o mesmo desafio</li>
+          <li>Dúvidas respondidas por mim, por escrito, toda semana</li>
+          <li>Regras claras: sem dados de paciente e sem venda entre membros</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -665,7 +791,7 @@ footer a:hover{border-color:#EAF0F0}
     <div class="faq">
       <details><summary>Marketing não vai me fazer parecer vendedor?</summary><p>Não, e esse é o centro do método. O paciente particular escolhe quem transmite segurança, não quem grita mais alto. Você vai aprender a comunicar com clareza e técnica, educar antes de oferecer e apresentar valores com transparência. Nada de promoção, dancinha ou pressão.</p></details>
       <details><summary>Meu conselho permite isso?</summary><p>Tudo no método é pensado para respeitar as regras de publicidade dos conselhos (CFM, CFO, CRP, CFBM, COFFITO, CFN, CFFa e outros). Cada conselho tem regras próprias, e você vai saber o que observar em cada etapa. A palavra final é sempre do seu conselho.</p></details>
-      <details><summary>Não tenho tempo. Vou conseguir aplicar?</summary><p>O programa foi feito para 1 hora por semana: aulas curtas, modelos prontos e um módulo para a sua secretária assistir. Você não precisa virar profissional de marketing, precisa de um caminho claro.</p></details>
+      <details><summary>Não tenho tempo. Vou conseguir aplicar?</summary><p>As aulas são curtas e gravadas: você assiste no seu ritmo, entre um atendimento e outro. E já recebe modelos prontos, e quem atende no seu consultório ganha acesso próprio. Você não precisa virar profissional de marketing, precisa de um caminho claro.</p></details>
       <details><summary>É só teoria ou tem coisa pronta para usar?</summary><p>Tem coisa pronta, e ela chega na hora. O Kit Convênio Zero traz mensagens de WhatsApp, retorno para quem não começou o tratamento, calendário de ações do ano, roteiro de divulgação no consultório e modelos para apresentar seus tratamentos. Você adapta à sua especialidade e usa ainda nesta semana. Os módulos explicam o porquê de cada peça, para você não depender de modelo para sempre.</p></details>
       <details><summary>Já paguei agência e não funcionou. Por que agora seria diferente?</summary><p>Porque o problema raramente é o anúncio. Na maioria dos casos falta consideração ou oferta, e aí nenhum anúncio resolve. Aqui você entende o caminho inteiro e passa a saber cobrar resultado de quem trabalha para você.</p></details>
       <details><summary>Não entendo nada de tecnologia nem de anúncio.</summary><p>O programa começa do zero, na linguagem do consultório. Quando entra a parte técnica, é passo a passo, com tela e modelo pronto.</p></details>
@@ -674,13 +800,15 @@ footer a:hover{border-color:#EAF0F0}
       <details><summary>Preciso largar os convênios?</summary><p>Não. Você decide o ritmo. Muitos profissionais começam abrindo horários particulares e só reduzem convênio quando a agenda particular já se sustenta.</p></details>
       <details><summary>Vou ter que aparecer em vídeo e expor minha vida?</summary><p>Não. Existem caminhos com mais e com menos exposição, e você escolhe o que combina com você. Posicionamento é sobre ser lembrado pelo que você faz bem, não sobre expor a sua vida.</p></details>
       <details><summary>Vou precisar investir em anúncios?</summary><p>Não é obrigatório para começar. Você vai saber o que fazer antes do anúncio (perfil, Google, consideração) e, quando decidir anunciar, quanto investir e como não desperdiçar verba.</p></details>
-      <details><summary>Minha secretária não vai aplicar nada disso.</summary><p>Por isso existe o módulo "A secretária de 2027: a recepção que converte", feito para ela assistir: primeira resposta, como falar de valor, objeções, retorno e confirmação, com mensagens prontas para adaptar.</p></details>
-      <details><summary>Vou ficar sozinho depois de assistir as aulas?</summary><p>A turma fundadora tem um encontro ao vivo de boas-vindas. E quem quiser acompanhamento contínuo pode entrar no Clube Convênio Zero: um encontro ao vivo por mês, análise de casos e comunidade com outros profissionais da saúde, sem fidelidade.</p></details>
-      <details><summary>Por que pré-venda? Quando recebo as aulas?</summary><p>A turma fundadora entra antes, por um valor menor, e ajuda a moldar o programa. A Aula de Diagnóstico e o Kit Convênio Zero são liberados na hora. Os módulos são liberados toda semana a partir de <span data-cfg="DATA_MODULO_1">25/11</span>. Se a turma não for formada até <span data-cfg="DATA_DECISAO">16/11</span>, você recebe 100% de volta automaticamente.</p></details>
+      <details><summary>Minha secretária não vai aplicar nada disso.</summary><p>Por isso ela ganha acesso próprio e um módulo inteiro feito para ela: "Atendimento em 2027: transforme quem atende em vendedor". Primeira resposta, "quanto custa?", objeções, scripts, follow-up e confirmação, com mensagens prontas para adaptar.</p></details>
+      <details><summary>Eu mesmo atendo o WhatsApp. O módulo de atendimento serve para mim?</summary><p>Serve, e foi pensado para isso também. Boa parte dos profissionais autônomos responde o próprio WhatsApp entre um atendimento e outro. As mensagens, os scripts e o follow-up funcionam igual, com menos tempo gasto.</p></details>
+      <details><summary>As aulas são ao vivo?</summary><p>Não. Todas as aulas são gravadas e curtas, para você assistir quando puder, quantas vezes precisar. O contato comigo acontece na comunidade.</p></details>
+      <details><summary>Vou ficar sozinho depois de assistir as aulas?</summary><p>Não. Você entra na comunidade Convênio Zero, com outros profissionais da saúde que têm o mesmo desafio, e eu respondo as dúvidas por escrito toda semana.</p></details>
+      <details><summary>Por que pré-venda? Quando recebo as aulas?</summary><p>A turma fundadora entra antes, por um valor menor, e ajuda a moldar o programa. A Aula de Diagnóstico e o Kit Convênio Zero são liberados na hora. Os 12 módulos são liberados em três lotes: <span data-cfg="DATA_LOTE_1">25/11</span>, <span data-cfg="DATA_LOTE_2">09/12</span> e <span data-cfg="DATA_LOTE_3">13/01</span>. Depois, tudo fica gravado para você assistir no seu ritmo. Se a turma não for formada até <span data-cfg="DATA_DECISAO">16/11</span>, você recebe 100% de volta automaticamente.</p></details>
       <details><summary>Você não é da área da saúde. Por que aprender com você?</summary><p>Justamente por isso. Você domina o atendimento; eu domino a aquisição. Há mais de 10 anos trabalho com tráfego pago, e depois de anos cuidando dos anúncios de médicos, dentistas e clínicas, a conclusão foi sempre a mesma: o que falta raramente é anúncio, é método. Eu não ensino nada clínico. Ensino a parte que a faculdade não ensina.</p></details>
-      <details><summary>Por que tão barato, se a consultoria custa muito mais?</summary><p>Porque na consultoria eu faço junto com você, toda semana. No Método você recebe o mesmo caminho organizado em aulas e aplica no seu ritmo. Menos acompanhamento individual, mesmo método.</p></details>
+      <details><summary>Por que tão barato, se a consultoria custa muito mais?</summary><p>Porque na consultoria eu faço junto com você, toda semana. No Método você recebe o mesmo caminho em aulas gravadas, aplica no seu ritmo e tira dúvidas na comunidade. Menos acompanhamento individual, mesmo método.</p></details>
       <details><summary>Isso substitui uma agência?</summary><p>Você pode aplicar sozinho ou com a sua equipe. E, se um dia contratar alguém, vai saber exatamente o que pedir e como cobrar resultado.</p></details>
-      <details><summary>E se eu não gostar?</summary><p>Depois que o Módulo 1 for liberado, você tem 15 dias. Se achar que não é para você, devolvemos 100% do valor, sem perguntas.</p></details>
+      <details><summary>E se eu não gostar?</summary><p>Depois que os primeiros módulos forem liberados, em <span data-cfg="DATA_LOTE_1">25/11</span>, você tem 15 dias. Se achar que não é para você, devolvemos 100% do valor, sem perguntas.</p></details>
     </div>
   </div>
 </section>
@@ -691,7 +819,7 @@ footer a:hover{border-color:#EAF0F0}
   <div class="wrap">
     <h2>Você já sabe cuidar do paciente. Agora aprenda a fazer ele chegar até você.</h2>
     <a class="btn js-checkout" href="#oferta">Quero entrar na turma fundadora</a>
-    <p class="apoio">Diagnóstico e Kit Convênio Zero na hora, garantia de 15 dias e turma garantida ou 100% de volta.</p>
+    <p class="apoio">Diagnóstico e kit na hora, garantia de 15 dias e turma garantida ou 100% de volta.</p>
   </div>
 </section>
 
@@ -699,14 +827,14 @@ footer a:hover{border-color:#EAF0F0}
 
 <footer>
   <div class="wrap">
-    <p class="marca"><img src="assets/logo-convenio-zero.webp" alt="Método Convênio Zero" width="150" height="45" loading="lazy"></p>
+    <p class="marca"><img src="assets/convenio-zero-logo-horizontal-escuro.svg" alt="Método Convênio Zero" width="151" height="30" loading="lazy"></p>
     <p>Um programa da Evoluze. Gustavo Scaciotti, CNPJ 51.629.310/0001-00, <a href="mailto:guscaciotti@gmail.com">guscaciotti@gmail.com</a></p>
     <p>Este programa ensina método de marketing e comunicação para profissionais da saúde. Os resultados dependem da aplicação e das condições de cada consultório; não há garantia de número de pacientes ou de faturamento. O conteúdo não substitui a orientação do seu conselho profissional.</p>
   </div>
 </footer>
 
 <div class="sticky" id="sticky" aria-hidden="true">
-  <span class="t">Turma fundadora<small>R$ <span data-cfg="PRECO_FUNDADOR">147</span>, Diagnóstico e kit na hora</small></span>
+  <span class="t">Turma fundadora<small>R$ <span data-cfg="PRECO_FUNDADOR">147</span>, kit na hora</small></span>
   <a class="btn js-checkout" href="#oferta" tabindex="-1">Quero entrar</a>
 </div>
 
