@@ -13,7 +13,7 @@ Tudo o que muda fica no bloco `CONFIG`, no topo do `index.html`:
 | `DEPOIMENTO_VIDEO_URL`, `DEPOIMENTO_POSTER`, `DEPOIMENTO_NOME`, `DEPOIMENTO_DESCRICAO`, `DEPOIMENTO_FOTO` | Arquivo .mp4 em `assets/` (player nativo, 9:16) ou link *embed* do YouTube/Vimeo; capa; nome, descrição e foto redonda do caso real. Vazio = a seção fica oculta. |
 | `DEPOIMENTO_NOME` | Nome e especialidade de quem dá o depoimento. |
 | `PRECO_FUNDADOR`, `PRECO_CHEIO`, `PRECO_CONSULTORIA` | Valores exibidos na página (a consultoria é a âncora de valor em "Coloque na balança"). |
-| `DATA_DECISAO`, `DATA_LOTE_1`, `DATA_LOTE_2`, `DATA_LOTE_3` | Data limite da turma e as datas dos três lotes de módulos. |
+| `DATA_DECISAO`, `DATA_LOTE_1`, `DATA_LOTE_2` | Data limite da turma e as datas dos dois lotes de módulos. |
 
 A meta tag de verificação de domínio do Meta entra no `<head>`, onde está o comentário indicando.
 
