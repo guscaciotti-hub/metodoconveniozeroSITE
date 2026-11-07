@@ -30,6 +30,7 @@
 <link rel="icon" href="assets/icone-512.png" sizes="512x512" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
+<link rel="preload" as="image" href="assets/fundo-hero.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -58,7 +59,7 @@ const CONFIG = {
 <style>
 :root{
   --preto:#0B1112; --preto-2:#121A1B; --preto-3:#1A2526;
-  --verde:#169C99; --verde-vivo:#1FB5B1; --verde-esc:#0F7E7B; --verde-claro:#E3F5F4; --verde-texto:#5FD3CE;
+  --verde:#169C99; --verde-vivo:#1FB5B1; --verde-esc:#0D7471; --verde-claro:#E3F5F4; --verde-texto:#5FD3CE;
   --branco:#FFFFFF; --cinza-bg:#F4F7F7; --tinta:#0E1516; --tinta-2:#4F5D60;
   --linha:rgba(14,21,22,.11); --linha-esc:rgba(255,255,255,.12);
   --titulo:"Sora", system-ui, sans-serif;
@@ -405,8 +406,7 @@ footer a{color:#EAF0F0;text-decoration:none;border-bottom:1px solid rgba(234,240
 .hero .anel-bg,.final .anel-bg{z-index:1}
 .hero>.wrap,.escuro>.wrap{z-index:2}
 .hero-fundo,.fundo{position:absolute;inset:0;z-index:0;pointer-events:none}
-.hero-fundo img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease;transform:scale(1.04);animation:kb 28s ease-in-out infinite alternate;-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 55%,transparent 100%)}
-.hero-fundo img.on{opacity:.2}
+.hero-fundo img{width:100%;height:100%;object-fit:cover;opacity:.2;transform:scale(1.04);will-change:transform;animation:kb 28s ease-in-out infinite alternate;-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 55%,transparent 100%)}
 .hero-fundo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,17,18,.85) 0%,rgba(11,17,18,.35) 60%,rgba(11,17,18,.6) 100%)}
 @keyframes kb{from{transform:scale(1.04)}to{transform:scale(1.13)}}
 .fundo img{position:absolute;right:0;top:0;height:100%;width:62%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 55%),linear-gradient(180deg,transparent 0%,#000 25%,#000 75%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 55%),linear-gradient(180deg,transparent 0%,#000 25%,#000 75%,transparent 100%);-webkit-mask-composite:source-in;mask-composite:intersect}
@@ -417,6 +417,38 @@ main>section:not(.escuro):not(.cinza):not(.comunidade){background:linear-gradien
 /* caso real: vídeo nativo vertical e foto */
 .fone-video video{background:#000}
 #depoimento .caso-video{margin-top:8px}
+
+/* desempenho: seções longas só são renderizadas quando se aproximam da tela */
+.modulos,.jornada,.faq,.comunidade .salas,.comunidade .com-por{content-visibility:auto;contain-intrinsic-size:auto 1200px}
+.mq-track,.anel-bg{will-change:transform}
+.fone .fone-topo small{opacity:1}
+
+/* assinatura no hero */
+.assina{display:flex;align-items:center;gap:10px;margin-top:18px;font-size:14.5px;color:rgba(234,240,240,.75);max-width:none}
+.assina img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.16);flex:0 0 44px}
+.assina b{color:#fff;font-weight:700}
+
+/* painel "Sua agenda da semana" */
+.agenda-painel{position:relative;max-width:460px;width:100%;margin:0 auto;background:#121A1B;border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:20px 20px 62px;color:#EAF0F0}
+.ap-cab{display:flex;justify-content:space-between;align-items:flex-start;gap:10px 14px;flex-wrap:wrap;margin-bottom:14px}
+.ap-cab>b{font-family:var(--titulo);font-weight:600;font-size:16px;letter-spacing:-.01em;padding-top:5px}
+.ap-dir{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.agenda-painel .cartao-2{position:static;animation:none;font-size:12.5px;padding:6px 11px;box-shadow:none;background:rgba(31,181,177,.16);color:var(--verde-texto);white-space:nowrap}
+.ap-chave{display:inline-flex;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:3px}
+.ap-btn{background:transparent;border:0;color:rgba(234,240,240,.72);font-family:var(--texto);font-weight:600;font-size:12.5px;line-height:1;padding:7px 11px;border-radius:999px;cursor:pointer;transition:background .25s ease,color .25s ease;white-space:nowrap}
+.ap-btn[aria-pressed="true"]{background:var(--verde);color:var(--preto)}
+.ap-btn:focus-visible{outline:2px solid var(--verde-texto);outline-offset:2px}
+.ap-dias{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-bottom:6px;font-size:11px;font-weight:600;color:rgba(234,240,240,.5);text-align:center;text-transform:uppercase;letter-spacing:.06em}
+.ap-celulas{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+.ap-celulas i{display:grid;place-items:center;height:26px;border-radius:6px;background:#3A4648;border:1.5px solid transparent;font-family:var(--texto);font-style:normal;font-weight:600;font-size:9.5px;line-height:1;letter-spacing:.02em;color:rgba(234,240,240,.72);transition:background .4s ease,border-color .4s ease,color .4s ease}
+.ap-celulas i.vazia{background:transparent;border-color:rgba(255,255,255,.1);color:transparent}
+.ap-celulas i.part{background:var(--verde-vivo);color:var(--preto)}
+.ap-celulas i.livre{background:transparent;border:1.5px dashed rgba(95,211,206,.45);color:rgba(95,211,206,.8)}
+.ap-linha{margin-top:14px;font-family:var(--titulo);font-weight:600;font-size:14.5px;color:#fff;max-width:none}
+.ap-leg{margin-top:6px;font-size:12.5px;line-height:1.45;color:rgba(234,240,240,.55);max-width:none}
+.agenda-painel .cartao{left:20px;bottom:-28px;max-width:300px}
+@media(max-width:939px){.agenda-painel{margin-bottom:40px}.ap-celulas i{font-size:0;height:22px}.ap-leg .longa{display:none}.ap-cab{display:grid;grid-template-columns:1fr auto;align-items:center}.ap-dir{display:contents}.ap-chave{grid-column:1/-1;justify-self:start}.agenda-painel .cartao{left:14px}}
+@media(max-width:400px){.ap-btn{padding:7px 9px;font-size:12px}}
 
 /* ===== VIDA: fundos, marca e movimento ===== */
 .hero,.escuro{position:relative;overflow:hidden}
@@ -431,8 +463,8 @@ main>section:not(.escuro):not(.cinza):not(.comunidade){background:linear-gradien
 @keyframes giro{to{transform:rotate(360deg)}}
 
 /* entrada do hero */
-.hero .para,.hero h1,.hero .lead,.hero .acoes,.foto-hero{animation:sobe .8s cubic-bezier(.2,.7,.2,1) both}
-.hero h1{animation-delay:.08s}.hero .lead{animation-delay:.18s}.hero .acoes{animation-delay:.28s}.foto-hero{animation-delay:.2s}
+.hero .para,.hero h1,.hero .assina,.hero .lead,.hero .acoes,.agenda-painel{animation:sobe .8s cubic-bezier(.2,.7,.2,1) both}
+.hero h1{animation-delay:.08s}.hero .assina{animation-delay:.14s}.hero .lead{animation-delay:.2s}.hero .acoes{animation-delay:.3s}.agenda-painel{animation-delay:.22s}
 @keyframes sobe{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 .cartao,.cartao-2{animation:flutua 6s ease-in-out infinite}
 .cartao-2{animation-delay:-3s}
@@ -573,7 +605,8 @@ main>section:not(.escuro):not(.cinza):not(.comunidade){background:linear-gradien
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .hero-fundo img{transform:none}.hero-fundo img.on,.fundo img.on{opacity:.12}
+  .ap-celulas i{transition:none!important}
+  .hero-fundo img{transform:none;opacity:.12}.fundo img.on{opacity:.12}
   .js-anim .rv,.bolha,.sumiu{opacity:1!important;transform:none!important}
   .digitando{display:none!important}
   .agenda-viz .av-grid i{opacity:1!important;transform:none!important}
@@ -591,7 +624,7 @@ main>section:not(.escuro):not(.cinza):not(.comunidade){background:linear-gradien
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-fundo" aria-hidden="true"><img src="assets/fundo-hero.webp" alt="" width="1600" height="900" decoding="async" fetchpriority="low" class="js-fundo"></div>
+  <div class="hero-fundo" aria-hidden="true"><img src="assets/fundo-hero.webp" alt="" width="1600" height="900" decoding="async" fetchpriority="high"></div>
   <svg class="anel-bg" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M69.82 17.75 A31.50 41.50 0 0 1 69.82 82.25" fill="none" stroke="currentColor" stroke-width="17.00"/><path d="M61.29 88.74 A31.50 41.50 0 0 1 18.89 56.49" fill="none" stroke="currentColor" stroke-width="17.00"/><path d="M18.89 43.51 A31.50 41.50 0 0 1 61.29 11.26" fill="none" stroke="currentColor" stroke-width="17.00"/></svg>
   <div class="wrap">
     <div class="topo">
@@ -602,23 +635,35 @@ main>section:not(.escuro):not(.cinza):not(.comunidade){background:linear-gradien
       <div>
         <p class="para">Para profissionais da saúde</p>
         <h1>Sua agenda de pacientes particulares não pode depender de <span class="dest">sorte</span>.</h1>
+        <p class="assina"><img src="assets/gustavo-assinatura.webp" width="44" height="44" alt="Gustavo Scaciotti"> <span>com <b>Gustavo Scaciotti</b> · 10+ anos em tráfego pago</span></p>
         <p class="lead">O Método Convênio Zero é o caminho completo, do posicionamento à recepção, para você atrair pacientes particulares com método, sem depender de convênio ou de indicação e sem ferir a autoridade que levou anos para construir.</p>
         <div class="acoes">
           <a class="btn js-checkout" href="#oferta">Quero entrar na turma fundadora</a>
           <p class="apoio"><b>R$ <span data-cfg="PRECO_FUNDADOR">147</span></b> no lote fundador, com Diagnóstico e Kit Convênio Zero liberados na hora e garantia de 15 dias.</p>
         </div>
       </div>
-      <figure class="foto-hero js-foto">
-        <div class="moldura">
-          <img src="assets/gustavo-retrato.webp" alt="Gustavo Scaciotti, criador do Método Convênio Zero" fetchpriority="high">
-          <div class="mono" aria-hidden="true">CZ</div>
+      <div class="agenda-painel" id="agenda-painel">
+        <div class="ap-cab">
+          <b>Sua agenda da semana</b>
+          <div class="ap-dir">
+            <span class="cartao-2">Turma fundadora</span>
+            <div class="ap-chave" role="group" aria-label="Estado da agenda">
+              <button type="button" class="ap-btn" data-estado="convenio" aria-pressed="true">Com convênio</button>
+              <button type="button" class="ap-btn" data-estado="metodo" aria-pressed="false">Com método</button>
+            </div>
+          </div>
         </div>
-        <div class="cartao-2">Turma fundadora</div>
+        <div aria-hidden="true">
+          <div class="ap-dias"><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span></div>
+          <div class="ap-celulas" id="ap-celulas"></div>
+        </div>
+        <p class="ap-linha" id="ap-linha" aria-live="polite">120 atendimentos de convênio · R$ 9.600</p>
+        <p class="ap-leg">Exemplo com consulta de convênio a R$ 80 e particular a R$ 350<span class="longa"> — faça a sua conta na calculadora abaixo</span>.</p>
         <div class="cartao">
           <div class="ic" aria-hidden="true">12</div>
           <div><b>Diagnóstico, kit e 12 módulos</b><span>53 aulas curtas, gravadas</span></div>
         </div>
-      </figure>
+      </div>
     </div>
   </div>
 </header>
@@ -1175,6 +1220,36 @@ main>section:not(.escuro):not(.cinza):not(.comunidade){background:linear-gradien
   window.__agenda = agenda;
 
   var reduz = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // painel "Sua agenda da semana"
+  (function(){
+    var painel = document.getElementById('agenda-painel'); if (!painel) return;
+    var cel = document.getElementById('ap-celulas'), linha = document.getElementById('ap-linha'), btns = painel.querySelectorAll('.ap-btn');
+    var estado = 'convenio', timer = null, visivel = true;
+    var vazias = {40:[13,31], 30:[11,24]}, parts = {40:[1,4,7,12,15,18,22,26,31,36], 30:[1,4,8,12,15,19,23,27]};
+    function mob(){ return window.matchMedia('(max-width:939px)').matches; }
+    function aplicar(imediato){
+      var n = cel.childElementCount, cs = cel.children;
+      for (var i = 0; i < n; i++) (function(i){
+        var c = cs[i], cls, txt;
+        if (estado === 'convenio') { if (vazias[n].indexOf(i) >= 0) { cls = 'vazia'; txt = ''; } else { cls = ''; txt = 'Convênio'; } }
+        else { if (parts[n].indexOf(i) >= 0) { cls = 'part'; txt = 'Particular'; } else { cls = 'livre'; txt = 'Livre'; } }
+        var f = function(){ c.className = cls; c.textContent = txt; };
+        if (imediato) f(); else setTimeout(f, i * 20);
+      })(i);
+      linha.textContent = estado === 'convenio' ? '120 atendimentos de convênio · R$ 9.600' : '28 particulares · mesmos R$ 9.600 · 92 horários livres';
+      btns.forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.estado === estado ? 'true' : 'false'); });
+    }
+    function montar(){ var n = mob() ? 30 : 40; if (cel.childElementCount === n) return; cel.innerHTML = ''; for (var i = 0; i < n; i++) cel.appendChild(document.createElement('i')); aplicar(true); }
+    function parar(){ if (timer) { clearInterval(timer); timer = null; } }
+    function iniciar(){ parar(); if (!reduz) timer = setInterval(function(){ if (visivel) { estado = estado === 'convenio' ? 'metodo' : 'convenio'; aplicar(false); } }, 4000); }
+    btns.forEach(function(b){ b.addEventListener('click', function(){ estado = b.dataset.estado; aplicar(false); iniciar(); }); });
+    montar();
+    if (reduz) { estado = 'metodo'; aplicar(true); } else { iniciar(); }
+    if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ es.forEach(function(e){ visivel = e.isIntersecting; }); }).observe(painel);
+    var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(montar, 150); });
+    window.__agendaHero = function(e){ estado = e; aplicar(true); parar(); };
+  })();
   if (reduz) document.querySelectorAll('.rede animateMotion').forEach(function(a){ a.parentNode.remove(); });
   if ('IntersectionObserver' in window && !reduz){
     document.documentElement.classList.add('js-anim');
