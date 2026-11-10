@@ -8,12 +8,10 @@ Tudo o que muda fica no bloco `CONFIG`, no topo do `index.html`:
 
 | Chave | O que é |
 |---|---|
-| `CHECKOUT_URL` | Link do checkout da Kiwify. Enquanto for `#oferta`, os botões só rolam até a oferta. |
-| `META_PIXEL_ID` | ID do Pixel do Meta. Vazio = o pixel não carrega. |
+| `CHECKOUT_URL` | Link do checkout da Kiwify. Os botões repassam UTMs e `fbclid` para ele. |
+| `META_PIXEL_ID` | ID do Pixel do Meta. Vazio = o pixel não carrega. PageView e ViewContent ao carregar; InitiateCheckout no clique. Purchase fica na Kiwify. |
+| `PRECO`, `MOEDA` | Valor exibido na página e enviado nos eventos do Pixel. |
 | `DEPOIMENTO_VIDEO_URL`, `DEPOIMENTO_POSTER`, `DEPOIMENTO_NOME`, `DEPOIMENTO_DESCRICAO`, `DEPOIMENTO_FOTO` | Arquivo .mp4 em `assets/` (player nativo, 9:16) ou link *embed* do YouTube/Vimeo; capa; nome, descrição e foto redonda do caso real. Vazio = a seção fica oculta. |
-| `DEPOIMENTO_NOME` | Nome e especialidade de quem dá o depoimento. |
-| `PRECO_FUNDADOR`, `PRECO_CHEIO`, `PRECO_CONSULTORIA` | Valores exibidos na página (a consultoria é a âncora de valor em "Coloque na balança"). |
-| `DATA_DECISAO`, `DATA_LOTE_1`, `DATA_LOTE_2` | Data limite da turma e as datas dos dois lotes de módulos. |
 
 A meta tag de verificação de domínio do Meta entra no `<head>`, onde está o comentário indicando.
 
